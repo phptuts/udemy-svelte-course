@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tip Calculator - Udemy Svelte Course</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tip Calculator";
+    var mkdocs_page_input_path = "tip-calculator.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Udemy Svelte Course</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Tip Calculator</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#learning-objectives">Learning objectives</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-pre-setup">1) Pre Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resources">Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-svelte-setup">2) Svelte Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resources_1">Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps_1">Steps</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-svelte-overview">3) Svelte Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#packagejson">Package.json</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rollup">Rollup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scripts-folder">Scripts Folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#src-folder">Src Folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#public-folder">Public Folder</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-svelte-cleanup-install-package">4) Svelte Cleanup / Install Package</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resources_2">Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps_2">Steps</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-html-for-tip-calculator">5) HTML For Tip Calculator</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resources_3">Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps_3">Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-code">Final Code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-binding-variables-and-class">6) Binding Variables and Class</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resources_4">Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps_4">Steps</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-reactivity-in-svelte">7) Reactivity In Svelte</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resources_5">Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps_5">Steps</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-github-pages">8) Github Pages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resources_6">Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps_6">Steps</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Udemy Svelte Course</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Tip Calculator</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="tip-calculator">Tip Calculator</h1>
+<p>In this project we'll be building a tip calculator. By the end of this project you should be able to:</p>
+<h2 id="demo">Demo</h2>
+<p><a href="https://phptuts.github.io/udemy-svelte-tip-calculator/">Tip Calculator</a></p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>import css packages from node_modules folder</li>
+<li>toggle classes dynamically on html elements based on conditions</li>
+<li>create button click events</li>
+<li>create reactive variables</li>
+</ul>
+<h2 id="1-pre-setup">1) Pre Setup</h2>
+<p>In this section we go over everything you will need to get started with building svelte projects.</p>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://code.visualstudio.com">Visual Code</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode">Visual Code Svelte Extension</a></li>
+<li><a href="https://nodejs.org">Node Js</a></li>
+</ul>
+<h3 id="steps">Steps</h3>
+<p>Let's get started.  Links to the code and notes in the resources.  In this series I am going to be using visual studio code as my code editor.  You can download it at https://code.visualstudio.com.  </p>
+<p>You will also need to download and install the svelte extension for visual studio code.  Click on the extension button and type in svelte.  It should be the first one that comes up.   </p>
+<p>You will also need to install nodejs.  Go to nodejs.org and download &amp; install the latest version.</p>
+<h2 id="2-svelte-setup">2) Svelte Setup</h2>
+<p>How to install svelte js on your laptop or computer.</p>
+<h3 id="resources_1">Resources</h3>
+<ul>
+<li><a href="https://github.com/phptuts/udemy-svelte-tip-calculator/tree/video-2-project-setup">Code</a></li>
+<li><a href="https://svelte.dev/">Svelte Website</a></li>
+</ul>
+<h3 id="steps_1">Steps</h3>
+<p>1) Open visual studio code to the project folder you are going to use for your tip calculator.</p>
+<p>2) Open a terminal on visual studio code </p>
+<p>3) Type in npx degit command to clone the sveltes/template repo into your project folder </p>
+<pre><code class="language-bash">npx degit sveltejs/template .
+</code></pre>
+<p>4) Type in npm install to install the dependencies</p>
+<pre><code class="language-bash">npm install 
+</code></pre>
+<p>5) Then type in npm run dev to start the website</p>
+<pre><code class="language-bash">npm run dev
+</code></pre>
+<p>6) Go to your local website, <a href="http://localhost:5000">localhost:5000</a> and make sure that svelte is running.</p>
+<h2 id="3-svelte-overview">3) Svelte Overview</h2>
+<h3 id="packagejson">Package.json</h3>
+<ol>
+<li>
+<p>Open the package.json file.  </p>
+</li>
+<li>
+<p>Notice that svelte is a dev dependency.  This means that the whole svelte library does not ship with your app.  Svelte will only include the parts of it's library you need when compiling your application.</p>
+</li>
+<li>
+<p>Also note that the three commands in your package.json, dev, build, and start.</p>
+</li>
+<li>
+<p>Start will serve the index.html file in the public folder</p>
+</li>
+<li>Dev will serve the index.html file in the public folder and will recompile your application when it changes.  This is because we are passing -w which means watch.</li>
+<li>Build is for building your app for production.</li>
+</ol>
+<pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;build&quot;: &quot;rollup -c&quot;,
+    &quot;dev&quot;: &quot;rollup -c -w&quot;,
+    &quot;start&quot;: &quot;sirv public&quot;
+  },
+</code></pre>
+<h3 id="rollup">Rollup</h3>
+<p>Open up the rollup.config.js file.  This is where svelte gets compiled. The starting point for your svelte app is src/main.js.  Your app javascript will be compile into a file called bundle.js and your css will be compiled into a file called bundle.css.</p>
+<h3 id="scripts-folder">Scripts Folder</h3>
+<p>It has one script for turning your project into a typescript project.</p>
+<h3 id="src-folder">Src Folder</h3>
+<p>Open up source folder and you will see the main.js file.  This is the entry point in your application.  The App component is being passed a prop named "name".  Go ahead change the prop store your name as it's value.  This will changes page to Hello {YourName}.  Look at the target being passed into the App component.  In the App Component we are targeting the body element.  This means that the App.svelte component will control the body of the page.</p>
+<p>Open the App.svelte file.  It's taking in prop name and showing that on the page.  This is why the page now says Hello {Yourname}.  Note all components will go into the src folder.</p>
+<h3 id="public-folder">Public Folder</h3>
+<p>Open up the public folder.  Here you will find the index.html, global.css files and the build folder we talked about previously. The global.css is just a css file no magic there.  Same for our index.html.  These files already have link and script tags for the bundle.js and bundle.css files.</p>
+<h2 id="4-svelte-cleanup-install-package">4) Svelte Cleanup / Install Package</h2>
+<ul>
+<li>We get milligram css working with our svelte website</li>
+<li>Cleanup all the added html and css code</li>
+</ul>
+<h3 id="resources_2">Resources</h3>
+<ul>
+<li><a href="https://github.com/phptuts/udemy-svelte-tip-calculator/tree/video-4-cleanup-install-packages">Code</a></li>
+<li><a href="https://github.com/thgh/rollup-plugin-css-only">Rollup Plugin Css Only</a></li>
+<li><a href="https://milligram.io/">Milligram CSS</a></li>
+<li><a href="https://github.com/tschaub/gh-pages">Gh Pages</a></li>
+</ul>
+<h3 id="steps_2">Steps</h3>
+<p>1) Install packages</p>
+<pre><code class="language-bash">npm install milligram gh-pages rollup-plugin-css-only --save-dev
+</code></pre>
+<p>2) Import the rollup plugin into our rollup config file.</p>
+<pre><code class="language-javascript">import css from 'rollup-plugin-css-only';
+</code></pre>
+<p>3) Add the rollup plugin to the list of plugins </p>
+<pre><code class="language-javascript">css({ output: 'public/extra.css'})
+</code></pre>
+<p>4) Import milligram css into our main.js file.</p>
+<pre><code class="language-javascript">import 'milligram/dist/millgram.min.css'
+</code></pre>
+<p>5) Remove the prop being inserted into our app component.</p>
+<pre><code class="language-javascript">const app = new App({
+    target: document.body,
+});
+</code></pre>
+<p>6) Delete everything inside our App.svelte file.</p>
+<p>7) Delete everything inside our global css file</p>
+<p>8) Install the Roboto font</p>
+<pre><code class="language-css">@import url('https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+}
+</code></pre>
+<p>9) Change the title to Tip Calculator in the index.html file.</p>
+<pre><code class="language-html">&lt;title&gt;Tip Calculator&lt;/title&gt;
+</code></pre>
+<p>10) Make all the links relative for github pages.</p>
+<p>11) Insert a link css tag for our extra css file which will contian our milligram.css</p>
+<pre><code class="language-html">&lt;link rel='stylesheet' href='extra.css'&gt;
+</code></pre>
+<p>12) Test Everything out by running npm run dev</p>
+<p>13) Inspect element and make sure there are no 404s.</p>
+<h2 id="5-html-for-tip-calculator">5) HTML For Tip Calculator</h2>
+<p>We build out our html and css in this section.</p>
+<h3 id="resources_3">Resources</h3>
+<ul>
+<li><a href="https://github.com/phptuts/udemy-svelte-tip-calculator/tree/video-5-html">Code</a></li>
+<li><a href="https://docs.emmet.io/cheat-sheet/">Emmet Cheat Cheat</a></li>
+<li><a href="https://milligram.io/">Milligram CSS</a></li>
+</ul>
+<h3 id="steps_3">Steps</h3>
+<p>1) Add the container section</p>
+<pre><code class="language-html">&lt;main class=&quot;container&quot;&gt;
+
+&lt;/main&gt;
+</code></pre>
+<p>2) The title to the page</p>
+<pre><code class="language-html">&lt;main class=&quot;container&quot;&gt;
+  &lt;section class=&quot;row&quot;&gt;
+        &lt;div class=&quot;column&quot;&gt;
+            &lt;h1&gt;Tip Calculator&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</code></pre>
+<p>3) Add a style tag and center the h1 tag.</p>
+<pre><code class="language-html">&lt;style&gt;
+  h1 {
+    text-align: center;
+  }
+&lt;/style&gt;
+</code></pre>
+<p>4) Add another for the price input</p>
+<pre><code class="language-html">  &lt;section class=&quot;row&quot;&gt;
+    &lt;div class=&quot;column&quot;&gt;
+      &lt;label for=&quot;price&quot;&gt;Price&lt;/label&gt;
+      &lt;input type=&quot;number&quot; id=&quot;price&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+</code></pre>
+<p>5) Add the input for the tip </p>
+<pre><code class="language-html">&lt;section class=&quot;row&quot;&gt;
+    &lt;div class=&quot;column&quot;&gt;
+      &lt;label for=&quot;tip&quot;&gt;Tip (15%)&lt;/label&gt;
+      &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; id=&quot;tip&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+</code></pre>
+<p>6) Make a style to make the range input take up 100% of width</p>
+<pre><code class="language-css">#tip {
+    width: 100%;
+}
+</code></pre>
+<p>7) Create a section with 3 buttons for preset tips.</p>
+<pre><code class="language-html">&lt;section class=&quot;row&quot;&gt;
+    &lt;div class=&quot;column&quot;&gt;&lt;button class=&quot;button button-outline&quot;&gt;15%&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;column&quot;&gt;&lt;button class=&quot;button button-outline&quot;&gt;25%&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;column&quot;&gt;&lt;button class=&quot;button button-outline&quot;&gt;30%&lt;/button&gt;&lt;/div&gt;
+  &lt;/section&gt;
+</code></pre>
+<p>8) Make the button take 100% of the width</p>
+<pre><code class="language-css">button {
+    width: 100%;
+}
+</code></pre>
+<p>9) Create the total tip at the button of the page</p>
+<pre><code class="language-html">&lt;section class=&quot;row&quot;&gt;
+    &lt;div class=&quot;column&quot;&gt;
+      &lt;h2&gt;Total Tip $12.12&lt;/h2&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+</code></pre>
+<p>10) Style the calculated Tip to be center and increase the top margin</p>
+<pre><code class="language-css">h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+</code></pre>
+<h3 id="final-code">Final Code</h3>
+<pre><code class="language-html">&lt;style&gt;
+    h1 {
+        text-align: center;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    #tip {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
+&lt;/style&gt;
+&lt;main class=&quot;container&quot;&gt;
+    &lt;section class=&quot;row&quot;&gt;
+        &lt;div class=&quot;column&quot;&gt;
+            &lt;h1&gt;Tip Calculator&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;row&quot;&gt;
+        &lt;div class=&quot;column&quot;&gt;
+            &lt;label for=&quot;price&quot;&gt;Price&lt;/label&gt;
+            &lt;input type=&quot;number&quot; id=&quot;price&quot;&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;row&quot;&gt;
+        &lt;div class=&quot;column&quot;&gt;
+            &lt;label for=&quot;tip&quot;&gt;Tip (15%)&lt;/label&gt;
+            &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; id=&quot;tip&quot;&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;row&quot;&gt;
+        &lt;div class=&quot;column&quot;&gt;
+            &lt;button class=&quot;button button-outline&quot;&gt;
+                15%
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;column&quot;&gt;
+            &lt;button class=&quot;button button-outline&quot;&gt;
+                25%
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;column&quot;&gt;
+            &lt;button class=&quot;button button-outline&quot;&gt;
+                30%
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;row&quot;&gt;
+        &lt;div class=&quot;column&quot;&gt;
+            &lt;h2&gt;Calculator Tip: $12.00&lt;/h2&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+</code></pre>
+<h2 id="6-binding-variables-and-class">6) Binding Variables and Class</h2>
+<ul>
+<li>How to connect variables to inputs</li>
+<li>How to toggle classes based on conditions</li>
+<li>How to create click events with buttons</li>
+</ul>
+<h3 id="resources_4">Resources</h3>
+<ul>
+<li><a href="https://github.com/phptuts/udemy-svelte-tip-calculator/tree/video-6-binding-variables-class">Code</a></li>
+<li><a href="https://svelte.dev/examples#hello-world">Outputing Variables</a></li>
+<li><a href="https://svelte.dev/examples#text-inputs">Two Way Binding</a></li>
+<li><a href="https://svelte.dev/examples#classes">Class Binding</a></li>
+</ul>
+<h3 id="steps_4">Steps</h3>
+<p>1) Create a script tag with 2 variables one for the price and the other for the tip amount.</p>
+<pre><code class="language-html">&lt;script&gt;
+  let price = 12.51;
+  let tip = 15;
+&lt;/script&gt;
+</code></pre>
+<p>2) Bind the variables to the right inputs</p>
+<pre><code class="language-html">&lt;input bind:value={tip} type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; id=&quot;tip&quot;&gt;
+</code></pre>
+<pre><code class="language-html">&lt;input bind:value={price} type=&quot;number&quot; id=&quot;price&quot;&gt;
+</code></pre>
+<p>3) Output the tip in the label</p>
+<pre><code class="language-html">&lt;label for=&quot;tip&quot;&gt;Tip ({tip}%)&lt;/label&gt;
+</code></pre>
+<p>4) Create a function changes the tip variable to a new value.</p>
+<pre><code class="language-javascript">function changeTip(newTip) {
+  tip = newTip;
+}
+</code></pre>
+<p>6) Hook up the function to the on click event in the button tags</p>
+<pre><code class="language-html">&lt;div class=&quot;column&quot;&gt;
+    &lt;button on:click={() =&gt; changeTip(15)} class=&quot;button button-outline&quot;&gt;
+        15%
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;column&quot;&gt;
+    &lt;button on:click={() =&gt; changeTip(25)}  class=&quot;button button-outline&quot;&gt;
+        25%
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;column&quot;&gt;
+    &lt;button on:click={() =&gt; changeTip(30)}  class=&quot;button button-outline&quot;&gt;
+        30%
+    &lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p>7) Bind the class button-outline to show up only if the tip amount does not equal what the button text equals.</p>
+<pre><code class="language-html">&lt;div class=&quot;column&quot;&gt;
+    &lt;button on:click={() =&gt; changeTip(15)} class:button-outline={tip !== 15}   class=&quot;button&quot;&gt;
+        15%
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;column&quot;&gt;
+    &lt;button on:click={() =&gt; changeTip(25)} class:button-outline={tip !== 25}  class=&quot;button&quot;&gt;
+        25%
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;column&quot;&gt;
+    &lt;button on:click={() =&gt; changeTip(30)} class:button-outline={tip !== 30}  class=&quot;button&quot;&gt;
+        30%
+    &lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="7-reactivity-in-svelte">7) Reactivity In Svelte</h2>
+<ul>
+<li>How to make a variable in svelte to calculate the tip.</li>
+</ul>
+<h3 id="resources_5">Resources</h3>
+<ul>
+<li><a href="https://github.com/phptuts/udemy-svelte-tip-calculator/tree/video-7-reactive-variable">Code</a></li>
+<li><a href="https://svelte.dev/examples#reactive-declarations">Reactive Variables</a></li>
+<li><a href="https://www.w3schools.com/jsref/jsref_tolocalestring_number.asp">toStringLocale</a></li>
+</ul>
+<h3 id="steps_5">Steps</h3>
+<p>1) Create a function that calculates the tip amount.</p>
+<pre><code class="language-javascript">function calculatedTip(price, tip) {
+    const calcTip = (price * (tip / 100));
+    return calcTip.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
+}
+</code></pre>
+<p>2) Create a reactive variable</p>
+<pre><code class="language-javascript">$: tipAmount = calculatedTip(price, tip);
+</code></pre>
+<p>3) Output the reactive variable in the template</p>
+<pre><code class="language-svelte">&lt;h2&gt;Calculated Tip: {tipAmount}&lt;/h2&gt;
+</code></pre>
+<h2 id="8-github-pages">8) Github Pages</h2>
+<p>How to publish to github pages</p>
+<h3 id="resources_6">Resources</h3>
+<ul>
+<li><a href="https://pages.github.com/">GH Pages</a></li>
+<li><a href="https://www.npmjs.com/package/gh-pages">Gh Pages NPM</a></li>
+</ul>
+<h3 id="steps_6">Steps</h3>
+<p>1) Import gh pages in your rollup config.</p>
+<pre><code class="language-javascript">import ghpages from 'gh-pages'
+</code></pre>
+<p>2) Go to the part that run only when production is on and upload to githpages</p>
+<pre><code class="language-javascript">production &amp;&amp; terser() &amp;&amp; ghPages.publish('public', (err) =&gt; {
+      console.log(err, 'uploaded to gh pages');
+    }),
+</code></pre>
+<p>3) Run npm run build</p>
+<pre><code class="language-bash">npm run build
+</code></pre>
+<p>4) Go to your github repository -&gt; setting and find the url and make sure it's working.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../about/" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../about/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
