@@ -481,12 +481,13 @@ $: tipAmount = calculatedTip(price, tip);
 <h2>Calculated Tip: {tipAmount}</h2>
 ```
 
-## 8) Github Pages
+## 8) Deploying to github pages
 
-How to publish to github pages
+How to publish your tip calculator to github pages.
 
 ### Resources
 
+- [Code](https://github.com/phptuts/udemy-svelte-tip-calculator/tree/video-8-githubpages)
 - [GH Pages](https://pages.github.com/)
 - [Gh Pages NPM](https://www.npmjs.com/package/gh-pages)
 
