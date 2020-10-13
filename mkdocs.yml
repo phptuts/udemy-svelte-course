@@ -1,0 +1,6 @@
+site_name: Udemy Svelte Course
+nav:
+    - Home: index.md
+    - About: about.md
+    - Tip Calculator: tip-calculator.md
+theme: readthedocs
